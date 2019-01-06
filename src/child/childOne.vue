@@ -8,6 +8,8 @@
 </template>
 
 <script>
+import { eventBus } from '../main';
+
 export default {
   props: ['childOneTitleVar','editAge'],
   methods: {
@@ -18,6 +20,11 @@ export default {
       this.childOneTitleVar = "Hey, you update title GLOBALLY";
       this.$emit('changeGlobally', this.childOneTitleVar);
     }
+  },
+  created() {
+    eventBus.$on('editAgeChildOne', (age) => {
+      this.editAge = age;
+    });
   }
 }
 </script>

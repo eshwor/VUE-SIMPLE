@@ -7,12 +7,15 @@
 </template>
 
 <script>
+import { eventBus } from '../main';
 export default {
   props:['childTwoTitleVar','editAge'],
   methods: {
     upateAge(){
       this.editAge = 30;
-      this.$emit('editAgeChildOne',this.editAge);
+      // this.$emit('editAgeChildOne',this.editAge);
+      // eventBus.$emit('editAgeChildOne',this.editAge); //way one to use eventbus
+      eventBus.changeAge(this.editAge);
     }
   }
 }
