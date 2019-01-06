@@ -1,16 +1,19 @@
 <template lang="html">
   <div class="header">
+    <h2>{{ websiteName }}</h2>
     <h2>This is the Header Part of the website</h2>
   </div>
 </template>
 
 <script>
 export default {
+  props: ['websiteName'],
   data(){
     return{
       header: "Welcome to Our Website"
     }
   }
+
 }
 </script>
 
